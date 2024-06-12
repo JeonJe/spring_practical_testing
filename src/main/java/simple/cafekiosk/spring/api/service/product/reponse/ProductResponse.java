@@ -3,23 +3,23 @@ package simple.cafekiosk.spring.api.service.product.reponse;
 import lombok.Builder;
 import lombok.Getter;
 import simple.cafekiosk.spring.domain.product.Product;
-import simple.cafekiosk.spring.domain.product.ProductSellingType;
+import simple.cafekiosk.spring.domain.product.ProductSellingStatus;
 import simple.cafekiosk.spring.domain.product.ProductType;
 @Getter
 public class ProductResponse {
     private Long id;
     private String productNumber;
     private ProductType type;
-    private ProductSellingType sellingType;
+    private ProductSellingStatus sellingStatus;
     private String name;
     private int price;
 
     @Builder
-    private ProductResponse(Long id, String productNumber, ProductType type, ProductSellingType sellingType, String name, int price) {
+    private ProductResponse(Long id, String productNumber, ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
         this.id = id;
         this.productNumber = productNumber;
         this.type = type;
-        this.sellingType = sellingType;
+        this.sellingStatus = sellingStatus;
         this.name = name;
         this.price = price;
     }
@@ -29,7 +29,7 @@ public class ProductResponse {
                 .id(product.getId())
                 .productNumber(product.getProductNumber())
                 .type(product.getType())
-                .sellingType(product.getSellingType())
+                .sellingStatus(product.getSellingStatus())
                 .name(product.getName())
                 .build();
     }
