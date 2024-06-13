@@ -2,7 +2,7 @@ package simple.cafekiosk.spring.api.service.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import simple.cafekiosk.spring.api.service.product.reponse.ProductResponse;
+import simple.cafekiosk.spring.api.service.product.response.ProductResponse;
 import simple.cafekiosk.spring.domain.product.Product;
 import simple.cafekiosk.spring.domain.product.ProductRepository;
 import simple.cafekiosk.spring.domain.product.ProductSellingStatus;
