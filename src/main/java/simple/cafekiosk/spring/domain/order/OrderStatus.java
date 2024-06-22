@@ -1,4 +1,4 @@
-package simple.cafekiosk.spring.domain.product.order;
+package simple.cafekiosk.spring.domain.order;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

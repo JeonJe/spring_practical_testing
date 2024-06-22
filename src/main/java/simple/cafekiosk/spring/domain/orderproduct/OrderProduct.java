@@ -1,9 +1,10 @@
-package simple.cafekiosk.spring.domain.product.order;
+package simple.cafekiosk.spring.domain.orderproduct;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import simple.cafekiosk.spring.domain.order.Order;
 import simple.cafekiosk.spring.domain.product.BaseEntity;
 import simple.cafekiosk.spring.domain.product.Product;
 
