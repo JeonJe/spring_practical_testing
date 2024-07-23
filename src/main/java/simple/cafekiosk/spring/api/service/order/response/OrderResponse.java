@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Getter
 public class OrderResponse {
 
@@ -18,7 +19,7 @@ public class OrderResponse {
     private List<ProductResponse> products;
 
     @Builder
-    public OrderResponse(Long id, int totalPrice, LocalDateTime registeredDateTime, List<ProductResponse> products) {
+    private OrderResponse(Long id, int totalPrice, LocalDateTime registeredDateTime, List<ProductResponse> products) {
         this.id = id;
         this.totalPrice = totalPrice;
         this.registeredDateTime = registeredDateTime;
@@ -32,7 +33,9 @@ public class OrderResponse {
                 .registeredDateTime(order.getRegisteredDateTime())
                 .products(order.getOrderProducts().stream()
                         .map(orderProduct -> ProductResponse.of(orderProduct.getProduct()))
-                        .collect(Collectors.toList()))
+                        .collect(Collectors.toList())
+                )
                 .build();
     }
+
 }

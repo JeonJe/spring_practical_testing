@@ -13,11 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "orders") //테이블명을 orders로 정의
+@Table(name = "orders")
 @Entity
 public class Order extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,9 +47,10 @@ public class Order extends BaseEntity {
         return new Order(products, registeredDateTime);
     }
 
-    private int calculateTotalPrice(List<Product> products){
-        return products.stream().mapToInt(Product::getPrice).sum();
-
+    private int calculateTotalPrice(List<Product> products) {
+        return products.stream()
+                .mapToInt(Product::getPrice)
+                .sum();
     }
 
 }

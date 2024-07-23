@@ -12,14 +12,13 @@ import simple.cafekiosk.spring.domain.order.Order;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
 @RequiredArgsConstructor
 @Service
-@Getter
 public class OrderService {
 
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;
+
     public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
         List<String> productNumbers = request.getProductNumbers();
         List<Product> products = productRepository.findAllByProductNumberIn(productNumbers);
@@ -28,4 +27,5 @@ public class OrderService {
         Order savedOrder = orderRepository.save(order);
         return OrderResponse.of(savedOrder);
     }
+
 }

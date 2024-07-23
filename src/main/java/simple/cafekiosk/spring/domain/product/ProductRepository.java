@@ -7,7 +7,12 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    List<Product> findAllBySellingStatusIn(List<ProductSellingStatus> sellingStatus);
+    /**
+     * select *
+     * from product
+     * where selling_status in ('SELLING', 'HOLD');
+     */
+    List<Product> findAllBySellingStatusIn(List<ProductSellingStatus> sellingStatuses);
 
     List<Product> findAllByProductNumberIn(List<String> productNumbers);
 
