@@ -3,12 +3,12 @@ package simple.cafekiosk.spring.api.service.order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import simple.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
+import simple.cafekiosk.spring.api.service.order.request.OrderCreateServiceRequest;
 import simple.cafekiosk.spring.api.service.order.response.OrderResponse;
+import simple.cafekiosk.spring.domain.order.Order;
 import simple.cafekiosk.spring.domain.order.OrderRepository;
 import simple.cafekiosk.spring.domain.product.Product;
 import simple.cafekiosk.spring.domain.product.ProductRepository;
-import simple.cafekiosk.spring.domain.order.Order;
 import simple.cafekiosk.spring.domain.product.ProductType;
 import simple.cafekiosk.spring.domain.stcok.Stock;
 import simple.cafekiosk.spring.domain.stcok.StockRepository;
@@ -32,7 +32,7 @@ public class OrderService {
      * 재고 감소 -> 동시성 문제
      * optimistic lock 이나 lock 개념을 사용
      */
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderCreateServiceRequest request, LocalDateTime registeredDateTime) {
         List<String> productNumbers = request.getProductNumbers();
         List<Product> products = findProductBy(productNumbers);
 
